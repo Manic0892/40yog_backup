@@ -12,7 +12,10 @@ ig.module(
 	'game.entities.ashParticle',
 	'game.entities.sunPowerup',
 	
+	//'game.entities.mainMenu',
+	
 	'game.levels.main',
+	//'game.levels.mainMenu',
 	
 	'impact.debug.debug',
 	
@@ -25,6 +28,8 @@ ig.module(
 MyGame = ig.Game.extend({
 	
 	gravity:500,
+	
+	clearColor: '#ffffff',
 	
 	// Load a font
 	font: new ig.Font( 'media/04b03.font.png' ),
