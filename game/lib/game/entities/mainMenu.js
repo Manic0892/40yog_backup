@@ -8,7 +8,7 @@ ig.module('game.entities.mainMenu').requires('impact.entity').defines(function()
 		
 		items: [
 			{text:'PLAY',exec:function() {
-				ig.game.loadLevelDeferred(LevelMain);
+				ig.game.loadLevel(LevelMain);
 			}
 			}],
 		
@@ -22,6 +22,12 @@ ig.module('game.entities.mainMenu').requires('impact.entity').defines(function()
 		
 		_wmDrawBox: true,
 		_wmBoxColor: 'rgba(255, 0, 0, 0.4)',
+		
+		collision: ig.Entity.COLLIDES.NONE,
+		type: ig.Entity.TYPE.NONE,
+		checkAgainst: ig.Entity.TYPE.NONE,
+		size: {x:50, y:50},
+		offset: {x:50,y:50},
 		
 		init: function(x,y,settings) {
 			this.parent(x,y,settings);
@@ -40,7 +46,7 @@ ig.module('game.entities.mainMenu').requires('impact.entity').defines(function()
 				}
 				
 				ig.input.initMouse();
-				ig.input.bind(ig.KEY.MOUSE1, 'mouse1');
+				ig.input.bind(ig.KEY.MOUSE1, 'shoot');
 			}
 		},
 		
@@ -55,7 +61,7 @@ ig.module('game.entities.mainMenu').requires('impact.entity').defines(function()
 				}
 			}
 			
-			if (ig.input.state('mouse1') && this.currSelected != null)
+			if (ig.input.state('shoot') && this.currSelected != null)
 				this.items[this.currSelected].exec();
 		},
 		
