@@ -97,6 +97,10 @@ ig.module(
 			this.arm.attacheeUpdate(this.pos.x, this.pos.y, this.flip);
 			//console.log(this.arm.pos, this.pos);
 		},
+		
+		healthPowerup: function(amount) {
+			this.health += amount;
+		}
 	});
 	
 	EntityArm = ig.Entity.extend({

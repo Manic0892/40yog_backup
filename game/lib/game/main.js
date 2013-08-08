@@ -10,6 +10,7 @@ ig.module(
 	'game.entities.enemySpider',
 	'game.entities.bloodParticle',
 	'game.entities.ashParticle',
+	'game.entities.sunPowerup',
 	
 	'game.levels.main',
 	
