@@ -175,7 +175,7 @@ ig.module(
 		animSheet: new ig.AnimationSheet('media/bullet2.png',8,8),
 		gravityFactor: 0,
 		
-		type: ig.Entity.TYPE.A,
+		type: ig.Entity.TYPE.NONE,
 		checkAgainst: ig.Entity.TYPE.B, // Check Against B - our evil enemy group
 		collides: ig.Entity.COLLIDES.PASSIVE,
 		

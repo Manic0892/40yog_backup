@@ -23,14 +23,20 @@ ig.module('game.entities.mainMenu').requires('impact.entity').defines(function()
 		_wmDrawBox: true,
 		_wmBoxColor: 'rgba(255, 0, 0, 0.4)',
 		
+		animSheet: new ig.AnimationSheet('media/null.png',64,64),
+		
 		collision: ig.Entity.COLLIDES.NONE,
 		type: ig.Entity.TYPE.NONE,
 		checkAgainst: ig.Entity.TYPE.NONE,
-		size: {x:50, y:50},
-		offset: {x:50,y:50},
+		size: {x:64, y:64},
+		offset: {x:0,y:0},
 		
 		init: function(x,y,settings) {
 			this.parent(x,y,settings);
+			
+			this.addAnim('idle', 1, [0]);
+			
+			
 			
 			
 			if (!ig.global.wm) {
@@ -52,6 +58,8 @@ ig.module('game.entities.mainMenu').requires('impact.entity').defines(function()
 		
 		update: function() {
 			this.parent();
+			
+			this.currentAnim = this.anims.idle;
 			
 			this.currSelected = null;
 			
