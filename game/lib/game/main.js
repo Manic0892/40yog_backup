@@ -28,7 +28,7 @@ ig.module(
 	
 	'impact.debug.debug',
 	
-	'plugins.perpixel',
+	//'plugins.perpixel',
 	'plugins.gui',
 	'plugins.pause'
 )
