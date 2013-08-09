@@ -54,7 +54,7 @@ ig.module(
         touches: function( other ){
             //if in weltmeister or no associated animation sheet for either entity
             //call parent method and ignore per-pixel
-            if( ig.global.wm || this.currentAnim === null || other.currentAnim === null ){
+            if( ig.global.wm || this.currentAnim === null || other.currentAnim === null || other.perPixel != true ){
                 return this.parent( other );
             }
 
