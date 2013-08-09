@@ -5,30 +5,14 @@ ig.module(
 	'impact.game',
 	'impact.font',
 	
-	'game.entities.ashParticle',
 	'game.entities.bloodParticle',
-	'game.entities.character',
-	'game.entities.player',
-	'game.entities.enemySpider',
-	'game.entities.enemySpiderBoss',
-	'game.entities.healthPowerup',
-	'game.entities.level1Logic',
-	'game.entities.levelLogic',
-	'game.entities.mainMenu',
-	'game.entities.particle',
-	'game.entities.particleSpawner',
-	'game.entities.player',
-	'game.entities.playerL1',
-	'game.entities.powerup',
-	'game.entities.sunPowerup',
-	
+	'game.entities.ashParticle',
 		
 	'game.levels.main',
 	'game.levels.mainMenu',
 	
 	'impact.debug.debug',
 	
-	//'plugins.perpixel',
 	'plugins.gui',
 	'plugins.pause'
 )
