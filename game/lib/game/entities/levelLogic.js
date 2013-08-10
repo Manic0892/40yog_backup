@@ -35,27 +35,29 @@ ig.module('game.entities.levelLogic').requires('impact.entity').defines(function
 		
 		draw: function() {
 			var playerEnt = (ig.game.getEntitiesByType(EntityPlayer)[0]);
-								
-			newhp = playerEnt.health;
-			maxhp = playerEnt.maxHealth;
-			if (newhp > maxhp)
-				newhp = maxhp;
 			
-			var width = 150;
-			var height = 30;
-			var x = 10;
-			var y = 10;
-			
-			var rectWidth = newhp/maxhp * width;
-			ig.system.context.beginPath();
-			ig.system.context.rect(x, y, rectWidth, height);
-			ig.system.context.fillStyle = 'red';
-			ig.system.context.fill();
-			ig.system.context.beginPath();
-			ig.system.context.rect(x, y, width, height);
-			ig.system.context.strokeStyle = 'black';
-			ig.system.context.lineWidth = 1;
-			ig.system.context.stroke();
+			if (playerEnt) {
+				newhp = playerEnt.health;
+				maxhp = playerEnt.maxHealth;
+				if (newhp > maxhp)
+					newhp = maxhp;
+				
+				var width = 150;
+				var height = 30;
+				var x = 10;
+				var y = 10;
+				
+				var rectWidth = newhp/maxhp * width;
+				ig.system.context.beginPath();
+				ig.system.context.rect(x, y, rectWidth, height);
+				ig.system.context.fillStyle = 'red';
+				ig.system.context.fill();
+				ig.system.context.beginPath();
+				ig.system.context.rect(x, y, width, height);
+				ig.system.context.strokeStyle = 'black';
+				ig.system.context.lineWidth = 1;
+				ig.system.context.stroke();
+			}
 		}
 	});
 	
