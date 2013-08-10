@@ -98,6 +98,14 @@ ig.module(
 			//console.log(this.arm.pos, this.pos);
 		},
 		
+		receiveDamage: function(amount, other) {
+			if (this.health - amount <= 0) {
+				ig.music.stop();
+				ig.game.loadLevelDeferred(LevelMainMenu);
+			}
+			this.parent(amount, other);
+		},
+		
 		healthPowerup: function(amount) {
 			this.health += amount;
 		}
