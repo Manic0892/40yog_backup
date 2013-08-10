@@ -5,12 +5,12 @@ ig.module(
 ).defines(function() {
 	EntityPlayer = EntityCharacter.extend({
 		
-		size:{x:64,y:128},
+		size:{x:32,y:64},
 		
 		maxVel: {x: 400, y: 400},
 		friction: {x: 500, y: 0},
 		
-		animSheet: new ig.AnimationSheet( 'media/player.png', 64, 128 ),
+		animSheet: new ig.AnimationSheet( 'media/player.png', 32, 64 ),
 		
 		gunshot: new ig.Sound('media/sound/gun.*'),
 		
@@ -104,8 +104,8 @@ ig.module(
 	});
 	
 	EntityArm = ig.Entity.extend({
-		animSheet: new ig.AnimationSheet('media/arm.png', 64, 16),
-		size: {x:64, y:16},
+		animSheet: new ig.AnimationSheet('media/arm.png', 32, 8),
+		size: {x:32, y:8},
 		type: ig.Entity.TYPE.NONE,
 		//checkAgainst: ig.Entity.TYPE.B,
 		collides: ig.Entity.COLLIDES.NONE,
@@ -143,7 +143,7 @@ ig.module(
 			var angle = Math.atan2(ig.input.mouse.y - this.pos.y + ig.game.screen.y, ig.input.mouse.x - this.pos.x + ig.game.screen.x);
 			
 			if (this.flip) {
-				this.pos.x -= this.attachedTo.size.x - 20;
+				this.pos.x -= this.attachedTo.size.x - 10;
 				this.currentAnim.pivot.x = this.size.x;
 				angle += Math.PI;
 			} else {
@@ -157,7 +157,7 @@ ig.module(
 		},
 		
 		attacheeUpdate: function(x,y, shouldFlip) { //you can't just set the pos of the arm to the pos of the attachee.  What the fuck?
-			this.pos = {x:x+20, y:y+50};
+			this.pos = {x:x+10, y:y+25};
 			this.flip = shouldFlip;
 		},
 		
