@@ -9,14 +9,16 @@ ig.module('game.entities.mainMenu').requires('impact.entity').defines(function()
 		items: [
 			{text:'PLAY',exec:function() {
 				ig.game.loadLevel(LevelMain);
-			}
-			}],
+			}}, {text:'OPTIONS', exec:function() {
+				console.log('clicked options');
+			}}
+		],
 		
 		hitboxList: [],
 		
 		initOffset : 100,
 		
-		ySpacing: 25,
+		ySpacing: 100,
 		
 		currSelected: null,
 		
@@ -43,7 +45,6 @@ ig.module('game.entities.mainMenu').requires('impact.entity').defines(function()
 				for (var i = 0; i < this.items.length; i++) {
 					var width = this.font.widthForString(this.items[i].text);
 					var height = this.font.heightForString(this.items[i].text);
-					console.log(height);
 					
 					var pos1 = {x:ig.system.width/2 - width/2, y:this.initOffset+i*this.ySpacing};
 					var pos2 = {x:ig.system.width/2 + width/2, y:this.initOffset+i*this.ySpacing+height};
