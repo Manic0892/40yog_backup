@@ -16,9 +16,13 @@ ig.module('game.entities.mainMenu').requires('impact.entity').defines(function()
 		
 		hitboxList: [],
 		
-		initOffset : 100,
+		initYOffset: 100,
+		
+		initXOffset: 150,
 		
 		ySpacing: 100,
+		
+		alignment: ig.Font.ALIGN.CENTER,
 		
 		currSelected: null,
 		
@@ -46,8 +50,8 @@ ig.module('game.entities.mainMenu').requires('impact.entity').defines(function()
 					var width = this.font.widthForString(this.items[i].text);
 					var height = this.font.heightForString(this.items[i].text);
 					
-					var pos1 = {x:ig.system.width/2 - width/2, y:this.initOffset+i*this.ySpacing};
-					var pos2 = {x:ig.system.width/2 + width/2, y:this.initOffset+i*this.ySpacing+height};
+					var pos1 = {x:ig.system.width/2 - width/2 + this.initXOffset, y:this.initYOffset+i*this.ySpacing};
+					var pos2 = {x:ig.system.width/2 + width/2 + this.initXOffset, y:this.initYOffset+i*this.ySpacing+height};
 					
 					this.hitboxList.push(new hitbox(pos1, pos2, i));
 				}
@@ -80,9 +84,9 @@ ig.module('game.entities.mainMenu').requires('impact.entity').defines(function()
 			if (!ig.global.wm) {
 				for (var i = 0; i < this.items.length; i++) {
 					if (i != this.currSelected)
-						this.font.draw(this.items[i].text, ig.system.width/2, this.initOffset + i*this.ySpacing, ig.Font.ALIGN.CENTER);
+						this.font.draw(this.items[i].text, this.initXOffset + ig.system.width/2, this.initYOffset + i*this.ySpacing, this.alignment);
 					else
-						this.redFont.draw(this.items[i].text, ig.system.width/2, this.initOffset + i*this.ySpacing, ig.Font.ALIGN.CENTER);
+						this.redFont.draw(this.items[i].text, this.initXOffset + ig.system.width/2, this.initYOffset + i*this.ySpacing, this.alignment);
 				}
 			}
 		},
