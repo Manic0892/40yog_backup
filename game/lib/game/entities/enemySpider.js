@@ -1,7 +1,7 @@
 ig.module(
 	'game.entities.enemySpider'
 ).requires(
-	'game.entities.character'
+	'game.entities.character','plugins.perpixel' 
 ).defines(function() {
 	EntityEnemySpider = EntityCharacter.extend({
 		type: ig.Entity.TYPE.B,

@@ -61,7 +61,7 @@ MyGame = ig.Game.extend({
 	}
 });
 
-ig.setNocache(true);
+//ig.setNocache(true);
 
 ig.main( '#canvas', MyGame, 60, 800, 600, 1 );
 
