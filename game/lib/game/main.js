@@ -12,8 +12,6 @@ ig.module(
 	'game.levels.mainMenu',
 	'game.levels.win',
 	
-	'impact.debug.debug',
-	
 	'plugins.gui',
 	'plugins.pause'
 )
