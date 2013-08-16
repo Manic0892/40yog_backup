@@ -10,6 +10,7 @@ ig.module(
 		
 	'game.levels.1',
 	'game.levels.mainMenu',
+	'game.levels.win',
 	
 	'impact.debug.debug',
 	

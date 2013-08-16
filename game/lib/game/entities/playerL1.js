@@ -45,6 +45,13 @@ ig.module('game.entities.playerL1').requires('game.entities.player').defines(fun
 			this.sunProp.attacheeUpdate(this.pos.x, this.pos.y, this.size.x, this.size.y);
 		},
 		
+		triggeredBy: function(triggered, other) {
+			if (other.name=='winTrigger') {
+				ig.music.stop();
+				ig.game.loadLevelDeferred(LevelWin);
+			}
+		},
+		
 		sunPowerup: function(amount) {
 			this.sun += amount;
 		}
