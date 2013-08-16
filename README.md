@@ -1,7 +1,7 @@
 40yog
 =====
 
-####[Latest Build](40yog.manic0892.com)
+####[Latest Build](http://40yog.manic0892.com)
 
 This is a simple game made to both test the ImpactJS engine and to provide a launch point for a larger project.
 
