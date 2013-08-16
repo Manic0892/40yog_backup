@@ -8,7 +8,7 @@ ig.module('game.entities.mainMenu').requires('impact.entity').defines(function()
 		
 		items: [
 			{text:'PLAY',exec:function() {
-				ig.game.loadLevel(LevelMain);
+				ig.game.loadLevel(Level1);
 			}}, {text:'OPTIONS', exec:function() {
 				console.log('clicked options');
 			}}
