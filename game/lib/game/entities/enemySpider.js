@@ -15,7 +15,7 @@ ig.module(
 		offset:{x:0,y:0},
 		speed:100,
 		
-		health:20,
+		health:50,
 		
 		animSheet: new ig.AnimationSheet( 'media/spider.png', 64, 64 ),
 		

@@ -25,7 +25,7 @@ ig.module(
 		jump: 300,
 		health: 100,
 		maxHealth: 100,
-		cooldown: 0,
+		cooldown: 40,
 		
 		zIndex: 0,
 		
@@ -67,7 +67,7 @@ ig.module(
 			if( ig.input.state('shoot') && this.cooldown == 0) {
 				ig.game.spawnEntity( EntityBullet, this.pos.x+this.size.x/2, this.pos.y+this.size.y/2, {flip:this.flip, d:{x:ig.input.mouse.x, y:ig.input.mouse.y}} );
 				this.gunshot.play();
-				this.cooldown = 60;
+				this.cooldown = 20;
 				this.arm.fire();
 			}
 			
