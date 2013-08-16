@@ -8,7 +8,7 @@ ig.module(
 	'game.entities.bloodParticle',
 	'game.entities.ashParticle',
 		
-	'game.levels.main',
+	'game.levels.1',
 	'game.levels.mainMenu',
 	
 	'impact.debug.debug',
