@@ -58,6 +58,8 @@ ig.module('game.entities.mainMenu').requires('impact.entity').defines(function()
 				
 				ig.input.initMouse();
 				ig.input.bind(ig.KEY.MOUSE1, 'shoot');
+				
+				ig.game.clearColor = '#ffffff';
 			}
 		},
 		

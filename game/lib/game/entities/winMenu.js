@@ -7,7 +7,7 @@ ig.module('game.entities.winMenu').requires('impact.entity').defines(function(){
 		redFont: new ig.Font('media/impact_bitmap_red.png'),
 		
 		items: [
-			{text:'PLAY',exec:function() {
+			{text:'MAIN MENU',exec:function() {
 				ig.game.loadLevel(LevelMainMenu);
 			}}
 		],
