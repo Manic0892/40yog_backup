@@ -23,6 +23,10 @@ ig.module('game.entities.levelWinLogic').requires('impact.entity').defines(funct
 			this.parent(x,y,settings);
 			
 			this.addAnim('idle', 1, [0]);
+			
+			if (!ig.global.wm) {
+				ig.game.clearColor = '#969696';
+			}
 		},
 		
 		update: function() {
