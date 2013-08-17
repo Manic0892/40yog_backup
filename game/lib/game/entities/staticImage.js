@@ -8,13 +8,14 @@ ig.module('game.entities.staticImage').requires('impact.entity').defines(functio
 		
 		_wmDrawBox: true,
 		_wmBoxColor: 'rgba(255,224,122,0.4)',
+		_wmIgnore: true,
 		
-		image: 'media/null.png',
+		animSheet: new ig.AnimationSheet('media/null.png',64,64),
+		
+		//This method causes the image to load when the entity is declared.  Perhaps should switch to multiple entities, each of which extends this class with different animsheets?
 				
 		init: function(x,y,settings) {
 			this.parent(x,y,settings);
-			
-			this.animSheet = new ig.AnimationSheet(this.image,64,64);
 			this.addAnim('idle', 1, [0]);
 		}
 	});
