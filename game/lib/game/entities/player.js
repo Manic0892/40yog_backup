@@ -20,9 +20,9 @@ ig.module(
 		collides: ig.Entity.COLLIDES.PASSIVE,
 		
 		flip: false,
-		accelGround: 400,
-		accelAir: 200,
-		jump: 300,
+		accelGround: 700,
+		accelAir: 400,
+		jump: 600,
 		health: 100,
 		maxHealth: 100,
 		cooldown: 40,
@@ -38,8 +38,7 @@ ig.module(
 			// Add the animations
 			this.addAnim( 'idle', .5, [0,1,2,3] );
 			this.addAnim( 'run', 0.25, [4,5,6,7,8,9] );
-			//this.addAnim( 'jump', 1, [4] );
-			//this.addAnim( 'fall', 1, [4] );
+			console.log('init');
 		},
 		
 		update: function() {
