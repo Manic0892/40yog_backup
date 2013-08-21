@@ -1,7 +1,7 @@
 ig.module(
 	'game.entities.enemySpiderBoss'
 ).requires(
-	'game.entities.enemySpider','plugins.perpixel'
+	'game.entities.enemySpider'/*,'plugins.perpixel'*/
 ).defines(function() {
 	EntityEnemySpiderBoss = EntityEnemySpider.extend({
 		size:{x:256,y:256},
