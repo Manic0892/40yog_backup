@@ -2,6 +2,8 @@ ig.module(
 	'game.main' 
 )
 .requires(
+	'plugins.perpixel',
+	
 	'impact.game',
 	'impact.font',
 	
@@ -12,7 +14,7 @@ ig.module(
 	'game.levels.mainMenu',
 	'game.levels.win',
 	
-	'plugins.gui',
+	//'plugins.gui',
 	'plugins.pause'
 )
 .defines(function(){
@@ -29,6 +31,7 @@ MyGame = ig.Game.extend({
 	
 	
 	init: function() {
+		console.log('boo');
 		ig.soundManager.volume = .1;
 		this.loadLevel(LevelMainMenu);
 	},
