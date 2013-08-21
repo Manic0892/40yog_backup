@@ -9,7 +9,7 @@ ig.module('game.entities.sunPowerup').requires('game.entities.powerup').defines(
 		
 		_wmIgnore: false,
 		
-		animSheet: new ig.AnimationSheet( 'media/sun.png', 32, 32 ),
+		animSheet: new ig.AnimationSheet( 'media/sunPowerup.png', 32, 32 ),
 		
 		check: function(other) {
 			other.sunPowerup(50);

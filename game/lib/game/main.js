@@ -31,7 +31,6 @@ MyGame = ig.Game.extend({
 	
 	
 	init: function() {
-		console.log('boo');
 		ig.soundManager.volume = .1;
 		this.loadLevel(LevelMainMenu);
 	},
