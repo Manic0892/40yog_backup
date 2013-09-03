@@ -24,6 +24,7 @@ ig.module('game.entities.playerL1').requires('game.entities.player').defines(fun
 				var distanceFromPlayer = 700;
 				var enemies = ig.game.getEntitiesByType(EntityEnemySpider);
 				enemies = enemies.concat(ig.game.getEntitiesByType(EntityEnemyBedbug));
+				enemies = enemies.concat(ig.game.getEntitiesByType(EntityCouch));
 				for (var i = 0; i < enemies.length; i++) {
 					if (enemies[i].pos.x < this.pos.x+distanceFromPlayer && enemies[i].pos.x > this.pos.x - distanceFromPlayer && enemies[i].pos.y < this.pos.y+distanceFromPlayer && enemies[i].pos.y > this.pos.y - distanceFromPlayer) {
 						enemies[i].receiveSunDamage(.5, this);

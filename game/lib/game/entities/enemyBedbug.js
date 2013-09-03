@@ -1,9 +1,9 @@
 ig.module(
 	'game.entities.enemyBedbug'
 ).requires(
-	'game.entities.character'/*,'plugins.perpixel' */
+	'game.entities.enemy'/*,'plugins.perpixel' */
 ).defines(function() {
-	EntityEnemyBedbug = EntityCharacter.extend({
+	EntityEnemyBedbug = EntityEnemy.extend({
 		type: ig.Entity.TYPE.B,
 		checkAgainst: ig.Entity.TYPE.A,
 		
