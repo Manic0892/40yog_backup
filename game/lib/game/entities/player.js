@@ -244,6 +244,8 @@ ig.module(
 		// This function is called when this entity overlaps anonther entity of the
 		// checkAgainst group. I.e. for this entity, all entities in the B group.
 		check: function( other ) {
+			if (!other.bulletDamage)
+				return;
 			other.receiveDamage( 10, this );
 			for (var i = 0; i < 40;i++) {
 				ig.game.spawnEntity(EntityBloodParticle, this.pos.x, this.pos.y, {dx: this.vel.x, dy: this.vel.y});
