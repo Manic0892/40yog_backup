@@ -47,7 +47,7 @@ ig.module(
 			}
 			this.alpha = this.idleTimer.delta().map(
 				this.lifetime - this.fadetime, this.lifetime,
-				1, 0
+				1, 0.1
 			);
 			this.parent();
 		},

@@ -1,4 +1,4 @@
-ig.module('game.entities.playerL1').requires('game.entities.player').defines(function() {
+ig.module('game.entities.playerL1').requires('game.entities.player', 'game.entities.fireParticleDamage').defines(function() {
 	EntityPlayerL1 = EntityPlayer.extend({
 		sun: 100,
 		maxSun: 100,
@@ -6,6 +6,7 @@ ig.module('game.entities.playerL1').requires('game.entities.player').defines(fun
 		sunSound: new ig.Sound('media/sound/sun.*'),
 		sunSoundTrack: new ig.Music(),
 		sunSoundPlaying: false,
+		cooldown: 5,
 		
 		init: function(x,y,settings) {
 			this.parent(x,y,settings);
@@ -56,6 +57,13 @@ ig.module('game.entities.playerL1').requires('game.entities.player').defines(fun
 		
 		sunPowerup: function(amount) {
 			this.sun += amount;
+		},
+		
+		shoot: function() {
+			ig.game.spawnEntity( EntityFireParticleDamage, this.pos.x+this.size.x/2, this.pos.y+this.size.y/2, {flip:this.flip, d:{x:ig.input.mouse.x, y:ig.input.mouse.y}} );
+			this.gunshot.play();
+			this.cooldown = 5;
+			this.arm.fire();
 		}
 	});
 	

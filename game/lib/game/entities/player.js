@@ -64,10 +64,7 @@ ig.module(
 			
 			// shoot
 			if( ig.input.state('shoot') && this.cooldown == 0) {
-				ig.game.spawnEntity( EntityBullet, this.pos.x+this.size.x/2, this.pos.y+this.size.y/2, {flip:this.flip, d:{x:ig.input.mouse.x, y:ig.input.mouse.y}} );
-				this.gunshot.play();
-				this.cooldown = 20;
-				this.arm.fire();
+				this.shoot();
 			}
 			
 			
@@ -116,6 +113,13 @@ ig.module(
 		
 		healthPowerup: function(amount) {
 			this.health += amount;
+		},
+		
+		shoot: function() {
+			ig.game.spawnEntity( EntityBullet, this.pos.x+this.size.x/2, this.pos.y+this.size.y/2, {flip:this.flip, d:{x:ig.input.mouse.x, y:ig.input.mouse.y}} );
+			this.gunshot.play();
+			this.cooldown = 20;
+			this.arm.fire();
 		}
 	});
 	
