@@ -23,6 +23,8 @@ EntityParticle = ig.Entity.extend({
 	maxVel: {x: 160, y: 160},
 	minBounceVelocity: 0,
 	
+	_wmIgnore: true,
+	
 	type: ig.Entity.TYPE.NONE,
 	checkAgainst: ig.Entity.TYPE.NONE,
 	collides: ig.Entity.COLLIDES.LITE,
