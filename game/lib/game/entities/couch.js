@@ -1,4 +1,4 @@
-ig.module('game.entities.couch').requires('impact.entity').defines(function() {
+ig.module('game.entities.couch').requires('impact.entity', 'game.entities.enemyBedbug').defines(function() {
 	EntityCouch = ig.Entity.extend({
 		animSheet: new ig.AnimationSheet('media/couch.png', 128, 64),
 		
@@ -14,6 +14,8 @@ ig.module('game.entities.couch').requires('impact.entity').defines(function() {
 		zIndex: -1,
 		
 		bulletDamage: false,
+		
+		spawnCD: 200,
 				
 		init: function(x,y,settings) {
 			this.parent(x,y,settings);
@@ -23,6 +25,7 @@ ig.module('game.entities.couch').requires('impact.entity').defines(function() {
 			this.addAnim('dead', 1, [2]);
 			
 			this.currentAnim = this.anims.init;
+			this.currSpawnCD = this.spawnCD;
 		},
 		
 		update: function() {
@@ -35,6 +38,18 @@ ig.module('game.entities.couch').requires('impact.entity').defines(function() {
 			} else if (this.health < 0) {
 				this.currentAnim = this.anims.dead;
 			}
+			
+			this.currSpawnCD--;
+			if (this.currSpawnCD < 0 && this.health > 0) {
+				if (Math.random() > .5) {
+					this.spawnEnemy();
+				}
+				this.currSpawnCD = this.spawnCD;
+			}
+		},
+		
+		spawnEnemy: function() {
+			ig.game.spawnEntity(EntityEnemyBedbug, this.pos.x, this.pos.y+32);
 		},
 		
 		kill: function() {
