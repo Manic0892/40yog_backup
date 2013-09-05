@@ -1,11 +1,13 @@
 ig.module('game.entities.fireParticleDamage').requires('game.entities.particle', 'game.entities.ashParticle').defines(function() {
 	EntityFireParticleDamage = EntityParticle.extend({
 		checkAgainst: ig.Entity.TYPE.B,
-		lifetime: 1,
-		fadetime: .9,
+		lifetime: .5,
+		fadetime: .4,
 		bounciness: 0,
 		friction: {x:0,y:0},
 		gravityFactor: 0,
+		
+		maxVel: {x:9999,y:9999},
 		
 		init: function(x,y,settings) {
 			this.parent(x,y,settings);
@@ -16,7 +18,14 @@ ig.module('game.entities.fireParticleDamage').requires('game.entities.particle',
 			
 			this.idleTimer = new ig.Timer();
 			this.particleSize = 1;
-			//console.log('whee');
+			
+			this.vel.x = ig.game.screen.x+settings.d.x - this.pos.x; 
+			this.vel.y = settings.d.y+ ig.game.screen.y- this.pos.y;
+			var vectorLength = Math.sqrt(this.vel.x*this.vel.x + this.vel.y*this.vel.y);
+			this.vel.x /= vectorLength;
+			this.vel.y /= vectorLength;
+			this.vel.x*=500; //default 500
+			this.vel.y*=500;
 		},
 		
 		update: function() {
@@ -27,7 +36,7 @@ ig.module('game.entities.fireParticleDamage').requires('game.entities.particle',
 				return;
 			}
 			this.alpha = this.idleTimer.delta().map(this.lifetime - this.fadetime, this.lifetime, 1,0.1);
-			this.g -= 3;
+			this.g -= 10;
 			this.parent();
 		},
 		
@@ -39,6 +48,11 @@ ig.module('game.entities.fireParticleDamage').requires('game.entities.particle',
 			ig.system.context.arc(x, y, this.particleSize, 0, Math.PI*2, true);
 			ig.system.context.fillStyle = 'rgb(' + this.r + ',' + this.g + ',' + this.b + ')';
 			ig.system.context.fill();
+		},
+		
+		check: function(other) {
+			other.receiveDamage( 2, this );
+			this.kill();
 		}
 	});
 });
