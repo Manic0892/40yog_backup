@@ -51,8 +51,10 @@ ig.module('game.entities.fireParticleDamage').requires('game.entities.particle',
 		},
 		
 		check: function(other) {
-			other.receiveDamage( 2, this );
-			this.kill();
+			if (!other.dead) {
+				other.receiveDamage( 2, this );
+				this.kill();
+			}
 		}
 	});
 });
