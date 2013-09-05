@@ -33,7 +33,7 @@ ig.module(
 			this.parent( x, y, settings );
 			
 			if (!ig.global.wm)
-			this.arm = ig.game.spawnEntity(EntityArm, this.pos.x,this.pos.y, {attachee: this});
+				this.arm = ig.game.spawnEntity(EntityArm, this.pos.x,this.pos.y, {attachee: this});
 			
 			// Add the animations
 			this.addAnim( 'idle', .5, [0,1,2,3] );
