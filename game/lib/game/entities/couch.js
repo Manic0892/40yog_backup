@@ -35,7 +35,7 @@ ig.module('game.entities.couch').requires('impact.entity', 'game.entities.enemyB
 				this.currentAnim = this.anims.init;
 			} else if (this.health > 0) {
 				this.currentAnim = this.anims.damaged;
-			} else if (this.health < 0) {
+			} else if (this.health <= 0) {
 				this.currentAnim = this.anims.dead;
 			}
 			
@@ -54,6 +54,9 @@ ig.module('game.entities.couch').requires('impact.entity', 'game.entities.enemyB
 		
 		kill: function() {
 			//just keeps you from losing the couch when it's dead
+			this.dead = true;
+			console.log(this.health);
+			console.log('triggered');
 		},
 		
 		receiveSunDamage: function(damage, other) {
