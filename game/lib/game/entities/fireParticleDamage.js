@@ -1,4 +1,4 @@
-ig.module('game.entities.fireParticleDamage').requires('game.entities.particle', 'game.entities.ashParticle').defines(function() {
+ig.module('game.entities.fireParticleDamage').requires('game.entities.particle', 'game.entities.ashParticleRising').defines(function() {
 	EntityFireParticleDamage = EntityParticle.extend({
 		checkAgainst: ig.Entity.TYPE.B,
 		lifetime: .5,
@@ -52,6 +52,7 @@ ig.module('game.entities.fireParticleDamage').requires('game.entities.particle',
 		
 		check: function(other) {
 			if (!other.dead) {
+				ig.game.spawnEntity(EntityAshParticleRising,this.pos.x,this.pos.y);
 				other.receiveDamage( 2, this );
 				this.kill();
 			}
