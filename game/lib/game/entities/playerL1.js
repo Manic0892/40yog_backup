@@ -60,7 +60,7 @@ ig.module('game.entities.playerL1').requires('game.entities.player', 'game.entit
 		},
 		
 		shoot: function() {
-			ig.game.spawnEntity( EntityFireParticleDamage, this.pos.x+this.size.x/2, this.pos.y+this.size.y/2, {flip:this.flip, d:{x:ig.input.mouse.x, y:ig.input.mouse.y}} );
+			ig.game.spawnEntity( EntityFireParticleDamage, this.pos.x+this.size.x/2, this.pos.y+this.size.y/2, {flip:this.flip, d:{x:ig.input.mouse.x, y:ig.input.mouse.y}, vel:this.vel} );
 			//this.gunshot.play();
 			this.cooldown = 2;
 			this.arm.fire();
