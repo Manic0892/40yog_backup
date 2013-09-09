@@ -6,7 +6,7 @@ ig.module(
 	EntityEnemySpiderBoss = EntityEnemySpider.extend({
 		size:{x:256,y:256},
 		
-		health:100,
+		health:500,
 		
 		animSheet: new ig.AnimationSheet( 'media/spiderBoss.png', 256,256 ),
 		
