@@ -41,7 +41,8 @@ ig.module('game.entities.couch').requires('impact.entity', 'game.entities.enemyB
 			
 			this.currSpawnCD--;
 			if (this.currSpawnCD < 0 && this.health > 0) {
-				if (Math.random() > .5) {
+				var playerPos = ig.game.getEntitiesByType(EntityPlayer)[0].pos;
+				if (Math.random() > .5 && playerPos.x > this.pos.x - 500 && playerPos.x < this.pos.x + 500 && playerPos.y > this.pos.y - 500 && playerPos.y < this.pos.y + 500) {
 					this.spawnEnemy();
 				}
 				this.currSpawnCD = this.spawnCD;
