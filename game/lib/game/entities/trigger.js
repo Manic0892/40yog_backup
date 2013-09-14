@@ -28,7 +28,7 @@ ig.module(
 .defines(function(){
 
 EntityTrigger = ig.Entity.extend({
-	size: {x: 16, y: 16},
+	size: {x: 64, y: 64},
 	
 	_wmScalable: true,
 	_wmDrawBox: true,

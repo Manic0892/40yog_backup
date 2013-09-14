@@ -5,7 +5,7 @@ ig.module('game.entities.text').requires('impact.entity').defines(function() {
 		_wmDrawBox: true,
 		_wmBoxColor: 'rgba(0,255,0,0.4)',
 		
-		ignorePause: true,
+		ignorePause: false,
 		
 		font: new ig.Font( 'media/impact_bitmap_25pt.png' ),
 		alignment: ig.Font.ALIGN.CENTER,
@@ -41,7 +41,7 @@ ig.module('game.entities.text').requires('impact.entity').defines(function() {
 		draw: function() {
 			this.parent();
 			if (this.activated && !ig.global.wm) {
-				this.font.draw(this.val, ig.system.width/2, ig.system.height-35, this.alignment);
+				this.font.draw(this.val, ig.system.width/2, 50, this.alignment);
 			}
 		},
 		
