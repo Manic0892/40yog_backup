@@ -27,7 +27,7 @@ ig.module(
 		maxHealth: 100,
 		cooldown: 40,
 		
-		zIndex: 0,
+		zIndex: -9,
 		
 		init: function( x, y, settings ) {
 			this.parent( x, y, settings );
@@ -120,6 +120,10 @@ ig.module(
 			this.gunshot.play();
 			this.cooldown = 20;
 			this.arm.fire();
+		},
+		
+		pickup: function(other) {
+			console.log('picked up' + other);
 		}
 	});
 	
@@ -131,7 +135,7 @@ ig.module(
 		collides: ig.Entity.COLLIDES.NONE,
 		gravityFactor: 0,
 		
-		zIndex: 1,
+		zIndex: -8,
 		
 		firingAnimCD: 0,
 		
