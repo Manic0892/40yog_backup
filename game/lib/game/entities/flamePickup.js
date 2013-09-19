@@ -10,6 +10,6 @@ ig.module('game.entities.flamePickup').requires('game.entities.weaponPickup').de
 		currYDiff: 1,
 		_wmIgnore: false,
 		
-		weaponType: 32,
+		weaponType: 10210897109101,
 	});
 });

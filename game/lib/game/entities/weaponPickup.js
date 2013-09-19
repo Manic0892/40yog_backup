@@ -44,8 +44,10 @@ ig.module('game.entities.weaponPickup').requires('impact.entity').defines(functi
 		},
 		
 		check: function(other) {
-			if (other.pickup)
+			if (other.pickup) {
 				other.pickup(this.weaponType);
+				this.kill();
+			}
 		}
 	});
 });
