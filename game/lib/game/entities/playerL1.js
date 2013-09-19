@@ -18,6 +18,10 @@ ig.module('game.entities.playerL1').requires('game.entities.player', 'game.entit
 			}
 		},
 		
+		spawnArm: function() {
+			this.arm = ig.game.spawnEntity(EntityArmL1, this.pos.x,this.pos.y, {attachee: this});
+		},
+		
 		update: function() {
 			this.parent();
 			
@@ -65,10 +69,54 @@ ig.module('game.entities.playerL1').requires('game.entities.player', 'game.entit
 		},
 		
 		shoot: function() {
-			ig.game.spawnEntity( EntityFireParticleDamage, this.pos.x+this.size.x/2, this.pos.y+this.size.y/2, {flip:this.flip, d:{x:ig.input.mouse.x, y:ig.input.mouse.y}, vel:this.vel} );
-			//this.gunshot.play();
-			this.cooldown = 2;
-			this.arm.fire();
+			if (this.flameActive) {
+				ig.game.spawnEntity( EntityFireParticleDamage, this.pos.x+this.size.x/2, this.pos.y+this.size.y/2, {flip:this.flip, d:{x:ig.input.mouse.x, y:ig.input.mouse.y}, vel:this.vel} );
+				this.cooldown = 2;
+			}
+		},
+		
+		pickup: function(other) {
+			if (other == 10210897109101) {
+				this.arm.pickupFlame();
+				this.flameActive = true;
+			}
+		}
+	});
+	
+	EntityArmL1 = EntityArm.extend({
+		animSheet: new ig.AnimationSheet('media/arm_l1.png',24,8),
+		size: {x:24,y:8},
+		
+		init: function(x,y,settings) {
+			this.parent(x,y,settings);
+			
+			this.addAnim('empty', 1, [0]);
+			this.addAnim('blowtorch', 1, [1]);
+			
+			this.currentAnim = this.anims.empty;
+		},
+		
+		update: function() {
+			this.currentAnim.flip.x = this.flip;	
+			
+			var angle = Math.atan2(ig.input.mouse.y - this.pos.y + ig.game.screen.y, ig.input.mouse.x - this.pos.x + ig.game.screen.x);
+			
+			if (this.flip) {
+				this.pos.x -= this.attachedTo.size.x - 10;
+				this.currentAnim.pivot.x = this.size.x;
+				angle += Math.PI;
+			} else {
+				this.currentAnim.pivot.x = 0;
+			}
+			
+			this.currentAnim.angle = angle;
+			
+			
+			this.parent();
+		},
+		
+		pickupFlame: function() {
+			this.currentAnim = this.anims.blowtorch;
 		}
 	});
 	
