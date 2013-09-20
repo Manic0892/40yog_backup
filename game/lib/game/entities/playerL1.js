@@ -8,6 +8,9 @@ ig.module('game.entities.playerL1').requires('game.entities.player', 'game.entit
 		sunSoundPlaying: false,
 		cooldown: 5,
 		
+		flameActive: false,
+		sunActive: false,
+		
 		init: function(x,y,settings) {
 			this.parent(x,y,settings);
 			if (!ig.global.wm) {
@@ -25,7 +28,7 @@ ig.module('game.entities.playerL1').requires('game.entities.player', 'game.entit
 		update: function() {
 			this.parent();
 			
-			if (ig.input.state('sun') && this.sun > 0) {
+			if (ig.input.state('sun') && this.sun > 0 && this.sunActive) {
 				var distanceFromPlayer = 700;
 				var enemies = ig.game.getEntitiesByType(EntityEnemy);
 				//var enemies = [];
@@ -79,6 +82,10 @@ ig.module('game.entities.playerL1').requires('game.entities.player', 'game.entit
 			if (other == 10210897109101) {
 				this.arm.pickupFlame();
 				this.flameActive = true;
+			}
+			
+			if (other == 8301115117110) {
+				this.sunActive = true;
 			}
 		}
 	});
