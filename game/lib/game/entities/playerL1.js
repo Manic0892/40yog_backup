@@ -1,4 +1,4 @@
-ig.module('game.entities.playerL1').requires('game.entities.player', 'game.entities.fireParticleDamage').defines(function() {
+ig.module('game.entities.playerL1').requires('game.entities.player', 'game.entities.fireParticleDamage', 'game.entities.sunSpark').defines(function() {
 	EntityPlayerL1 = EntityPlayer.extend({
 		sun: 100,
 		maxSun: 100,
@@ -85,7 +85,9 @@ ig.module('game.entities.playerL1').requires('game.entities.player', 'game.entit
 			}
 			
 			if (other == 8301115117110) {
-				this.sunActive = true;
+				console.log('heya');
+				ig.game.spawnEntity(EntitySunSpark, this.pos.x - 100,this.pos.y - 100,{target:this});
+				
 			}
 		}
 	});
