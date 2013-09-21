@@ -1,16 +1,19 @@
-ig.module('game.entities.staticImage2').requires('impact.entity').defines(function() {
-	EntityStaticImage2 = ig.Entity.extend({
-		size:{x:64, y:64},
+ig.module('game.entities.L1Tutorial').requires('game.entities.staticImage').defines(function() {
+	EntityL1Tutorial = EntityStaticImage.extend({
+		size:{x:448, y:320},
+		maxVel: {x:999,y:999},
+		zIndex: -10,
 		
 		type: ig.Entity.TYPE.NONE,
 		checkAgainst: ig.Entity.TYPE.NONE,
 		collides: ig.Entity.TYPE.NEVER,
 		
-		_wmDrawBox: true,
-		_wmBoxColor: 'rgba(255,224,122,0.4)',
-		_wmIgnore: true,
+		_wmDrawBox: false,
+		_wmIgnore: false,
+		gravityFactor: 1,
+		bounciness: .4,
 		
-		animSheet: new ig.AnimationSheet('media/null.png',64,64),
+		animSheet: new ig.AnimationSheet('media/L1Tutorial.png',448,320),
 		
 		//This method causes the image to load when the entity is declared.  Perhaps should switch to multiple entities, each of which extends this class with different animsheets?
 				
