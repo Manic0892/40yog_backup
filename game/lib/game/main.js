@@ -6,6 +6,7 @@ ig.module(
 	
 	'impact.game',
 	'impact.font',
+	'impact.debug.debug',
 	
 	'game.entities.bloodParticle',
 	'game.entities.ashParticle',
